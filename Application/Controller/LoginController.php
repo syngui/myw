@@ -14,13 +14,16 @@ class LoginController extends \Core\Classes\Controller
      */
     public function logar()
     {
-        if ($this->checkPost()) {            
+        echo "test"; die;
+        if ($this->checkPost()) {
+            echo "test"; die;            
             $usuario = new \App\Model\Usuario;
             $usuario->setLogin($this->post['usuario']);
             $usuario->setSenha($this->post['senha']);
             $usuario->authDb();
             redirect(DEFAULTCONTROLLER.'\logado');
         } else {
+            echo "test"; die;
             redirect(DEFAULTCONTROLLER);
         }
     }
