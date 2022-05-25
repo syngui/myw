@@ -42,7 +42,8 @@ class Usuario extends \Core\Classes\Model
 
     public function setSenha(String $senha)
     {
-        $this->senha = hash('sha256', $senha);
+        // $this->senha = hash('sha256', $senha);
+        $this->senha = $senha;
     }
 
 
@@ -51,6 +52,7 @@ class Usuario extends \Core\Classes\Model
      */
     public function authDb()
     {
+        echo $this->data["login"]. "-". $this->data["senha"]; die;
         $sql = "SELECT * from " . $this->table ." WHERE login = '" . $this->data['login'] . "' and senha = '" . $this->data['senha'] . "'";
         $ret = $this->con->query($sql)->fetch();
         if (empty($ret)) {
